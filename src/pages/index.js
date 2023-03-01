@@ -17,10 +17,9 @@ export default function Home() {
         sockets.emit('start')
       })
       sockets.on('wheelAngle', data => SetWheelAngle(data) )
-      sockets.on('wheelWinColor', data => {
-        console.log(lastWin);
-        SetLastWin(old => [...old, data].reverse());
-      })
+      // sockets.on('wheelWinColor', data => {
+      //   SetLastWin(old => [...old, data].reverse());
+      // })
       sockets.on('wheelTimer', (data)=> SetWheelTimer(data/100) )
       sockets.on('disconnect', () => {
         console.log('disconnect')
